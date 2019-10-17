@@ -4,7 +4,7 @@ dna = 'GATGGGATTggggttttccccTCCCATGTGCTCAAGACTGGCGCTaaaaGttttGAGCTTCTCaaaaGTCTAG
 
 sub_dna = dna[99:200] #cuts out nucleotides 100-200 
 
-print ('Original DNA:',sub_dna) #prints nucleotides 100-200
+print ('Original DNA:''Original DNA:',,sub_dna) #prints nucleotides 100-200
 
 dna_lower = sub_dna.lower() #makes nucleotides lowercase
 
