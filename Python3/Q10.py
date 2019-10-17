@@ -6,5 +6,7 @@ sub_dna = dna[99:200] #cuts out nucleotides 100-200
 
 print(sub_dna) #prints nucleotides 100-200
  
-print(len(sub_dna)) #prints number of nucleotides from 100-200, should be 101
+print('Number of bases:', len(sub_dna)) #prints number of nucleotides from 100-200, should be 101
 
+G_count = dna.count('G') #counts number of Gs
+print ('Number of Gs:', G_count) #prints number of Gs
