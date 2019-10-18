@@ -1,0 +1,2 @@
+c0_g1_i1	GAACTCCA
+c1_g1_i1	ACGAAACG
