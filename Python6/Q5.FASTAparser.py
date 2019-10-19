@@ -1,8 +1,25 @@
 #!/usr/bin/env python3
 
-with open ('Q5.test.txt') as file: 
+list_headers = []
+list_seq = []
+seq = ''
+
+with open ('Q5.fasta','r') as file:  
 	for line in file: 
-		line_strip = line.rstrip()
-		
+		line = line.rstrip()
+		if line.startswith('>'):
+			list_headers.append(line)
+			if seq: 
+				list_seq.append(seq)
+				seq = ''
+		else:
+			seq += line
+	list_seq.append(seq) 			
+
+print (list_headers)
+print (list_seq) 
+
+fastaDict= dict(zip(list_headers,list_seq))
+print('My New Dictionary:',fastaDict)
 
 
