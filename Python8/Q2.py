@@ -19,33 +19,18 @@ with open ("Python_08.fasta","r") as fasta:
 			seq += line #accumulates sequences line
 	sequences.append(seq) #appends last sequence to sequences list
 
-print(gene_names)
-print(sequences) 
 # at this point, we have a list of gene names and a list of sequences
 
-# now we will create a list of nucleotide counts dictionaries
+seq_codons = []
 
-nt_count= [] #creates empty list 
+for seq in sequences:
+	seq_codon = re.sub(r'(\w{3})', r'\1 ', seq) 
+	seq_codons.append(seq_codon) 
+	print(seq_codons) 
 
-for sequence in sequences: #this section populates count values in dictionaries
-	count = {} 
-	count['A'] = sequence.count('A')
-	count['T'] = sequence.count('T')
-	count['G'] = sequence.count('G')
-	count['C'] = sequence.count('C') 
-	nt_count.append(count) 
-	
-print (nt_count) #this is a list of dictionaries
+gene_codons_dict = dict(zip(gene_names,seq_codons))
+print(gene_codons_dict) 
 
-#create a dictionary of gene names and nt counts
-
-gene_nt_dict = dict(zip(gene_names,nt_count))
-print (gene_nt_dict)
-
-for gene in gene_nt_dict:
-	output = 'gene'
-	for nucleotide in gene_nt_dict[gene]:
-		count= gene_nt_dict[gene][nucleotide]
-		output += '\t'+str(count) 
-	print(output)
-
+for gene in gene_codons_dict:
+	codons = gene_codons_dict[gene] 
+	print(gene, codons, sep='\t')  
