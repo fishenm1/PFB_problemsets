@@ -19,8 +19,6 @@ with open ("Python_08.fasta","r") as fasta:
 			seq += line #accumulates sequences line
 	sequences.append(seq) #appends last sequence to sequences list
 
-print(gene_names)
-print(sequences) 
 # at this point, we have a list of gene names and a list of sequences
 
 # now we will create a list of nucleotide counts dictionaries
@@ -35,15 +33,12 @@ for sequence in sequences: #this section populates count values in dictionaries
 	count['C'] = sequence.count('C') 
 	nt_count.append(count) 
 	
-print (nt_count) #this is a list of dictionaries
-
 #create a dictionary of gene names and nt counts
 
 gene_nt_dict = dict(zip(gene_names,nt_count))
-print (gene_nt_dict)
 
 for gene in gene_nt_dict:
-	output = 'gene'
+	output = str(gene) 
 	for nucleotide in gene_nt_dict[gene]:
 		count= gene_nt_dict[gene][nucleotide]
 		output += '\t'+str(count) 
