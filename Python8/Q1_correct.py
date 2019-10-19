@@ -43,12 +43,9 @@ gene_nt_dict = dict(zip(gene_names,nt_count))
 print (gene_nt_dict)
 
 for gene in gene_nt_dict:
-	output = [gene]
+	output = 'gene'
 	for nucleotide in gene_nt_dict[gene]:
 		count= gene_nt_dict[gene][nucleotide]
-		output.append(count) 
+		output += '\t'+str(count) 
 	print(output)
-
-for line in output: 
-	print(line, "\t")
 
